@@ -7,8 +7,9 @@ COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
 
 RUN mkdir -p /usr/src/app \
 && apt update \
-&& apt install sudo nodejs certbot python-certbot-nginx -y\
-&& openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
+&& apt install sudo nodejs certbot python-certbot-nginx -y
+
+RUN openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
 && mkdir -p /var/www/_letsencrypt \
 && chown www-data /var/www/_letsencrypt \
 && sed -i -r 's/(listen .*443)/\1;#/g; s/(ssl_(certificate|certificate_key|trusted_certificate) )/#;#\1/g' /etc/nginx/sites-available/yitsao.com.conf  \
