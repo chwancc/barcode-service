@@ -102,7 +102,7 @@ function getAuthSession() {
 }
 
 // TODO 错误处理 解析html返回json 通过docker file部署到腾讯云服务器
-router.get('/api/getGoodsInfoFromBarCode', async (ctx, next) => {
+router.get('/getGoodsInfoFromBarCode', async (ctx, next) => {
   try {
     const options = {
       headers: null,
