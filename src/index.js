@@ -153,5 +153,6 @@ app.use(router.routes())
   .use(router.allowedMethods());
 
 app.listen(3000);
+console.log('服务已启动，访问 /getGoodsInfoFromBarCode?barCode=6928804010114')
 
 
