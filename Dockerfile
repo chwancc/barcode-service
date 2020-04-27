@@ -7,7 +7,7 @@ COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
 
 RUN mkdir -p /usr/src/app \
 && apt update \
-&& apt install sudo nodejs certbot python-certbot-nginx \
+&& apt install sudo nodejs certbot python-certbot-nginx -y\
 && openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
 && mkdir -p /var/www/_letsencrypt \
 && chown www-data /var/www/_letsencrypt \
