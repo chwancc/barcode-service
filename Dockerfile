@@ -1,4 +1,4 @@
-FROM daocloud.io/library/nginx:1.13.2
+FROM daocloud.io/library/nginx:1.18.0
 MAINTAINER chwan <mail@chwan.cc>
 
 WORKDIR /usr/src/app
