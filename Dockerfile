@@ -10,6 +10,8 @@ RUN mkdir -p /usr/src/app \
 && apt-get install sudo nodejs certbot python-certbot-nginx -y
 
 RUN openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
+&& node -v \
+&& npm -version \
 && mkdir -p /var/www/_letsencrypt \
 && chown www-data /var/www/_letsencrypt \
 && npm install --registry https://registry.npm.taobao.org
