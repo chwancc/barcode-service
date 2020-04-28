@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 RUN mkdir -p /usr/src/app \
 && apt-get update && apt-get upgrade -y \
-&& apt-get install sudo nginx certbot python-certbot-nginx -y
+&& apt-get install sudo nginx certbot python-certbot-nginx -y \
 
 && curl -sSL https://deb.nodesource.com/setup_10.x | bash - \
 && apt-get install -y nodejs \
