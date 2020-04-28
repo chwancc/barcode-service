@@ -1,11 +1,14 @@
-FROM daocloud.io/library/ubuntu:19.10
+FROM daocloud.io/library/debian:buster
 MAINTAINER chwan <mail@chwan.cc>
 
 WORKDIR /usr/src/app
 
 RUN mkdir -p /usr/src/app \
 && apt-get update && apt-get upgrade -y \
-&& apt-get install sudo nginx nodejs certbot python-certbot-nginx -y
+&& apt-get install sudo nginx certbot python-certbot-nginx -y
+
+&& curl -sSL https://deb.nodesource.com/setup_10.x | bash - \
+&& apt-get install -y nodejs \
 
 COPY package.json /usr/src/app/
 COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
