@@ -5,11 +5,15 @@ WORKDIR /usr/src/app
 
 RUN mkdir -p /usr/src/app \
 COPY package.json /usr/src/app/
-COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
 
 RUN apt-get update && apt-get upgrade -y \
-&& apt-get install sudo nginx certbot python-certbot-nginx curl -y \
-&& curl -sSL https://deb.nodesource.com/setup_10.x | bash - \
+&& apt-get install sudo nginx  -y \
+
+COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
+
+RUN apt-get install certbot python-certbot-nginx curl -y \
+
+RUN curl -sSL https://deb.nodesource.com/setup_10.x | bash - \
 && apt-get install -y nodejs \
 &&openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
 && node -v \
