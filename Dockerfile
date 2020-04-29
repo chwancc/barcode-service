@@ -1,4 +1,4 @@
-FROM daocloud.io/library/debian:buster
+FROM daocloud.io/library/nginx:1.13.2
 MAINTAINER chwan <mail@chwan.cc>
 
 WORKDIR /usr/src/app
@@ -7,7 +7,7 @@ RUN mkdir -p /usr/src/app \
 COPY package.json /usr/src/app/
 
 RUN apt-get update && apt-get upgrade -y \
-&& apt-get install sudo nginx  -y \
+&& apt-get install sudo -y \
 
 COPY ./config/nginxconfig.io-yitsao.com /etc/nginx
 
