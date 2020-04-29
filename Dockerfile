@@ -15,7 +15,7 @@ RUN apt-get install certbot python-certbot-nginx curl -y \
 
 RUN curl -sSL https://deb.nodesource.com/setup_10.x | bash - \
 && apt-get install -y nodejs \
-&&openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
+&& openssl dhparam -out /etc/nginx/dhparam.pem 2048 \
 && node -v \
 && npm -version \
 && mkdir -p /var/www/_letsencrypt \
